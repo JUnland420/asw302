@@ -1,0 +1,207 @@
+
+% ---------------------------------------------
+% Autor:        UOS, Arbeitsgruppe Software Engineering und CAU Kiel
+%               mit Verbesserungen von Valentin Bruder (26.06.13)
+% Beschreibung: Vorlage für Seminarausarbeitung
+% Dateiname:    ausarbeitung.tex 
+% Projekt:      Seminare
+% erstellt am:  24.04.2013
+% geändert am:  $Date$
+% ---------------------------------------------
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%             Achtung!!                %%%
+%%% In diesem Beispiel werden Pakete ver-%%%
+%%% wendet, die ggf. nachinstalliert wer-%%%
+%%% den müssen!                          %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Es wird KOMA-Script verwendet        %%%
+%%% welches in den meisten TeX-          %%%
+%%% Distributionen enthalten ist!        %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\documentclass[a4paper, 11pt, DIV=11, listof=numbered, bibliography=numbered, pointlessnumbers]{scrartcl}
+\documentclass[a4paper, 11pt, DIV=11, listof=numbered, numbers=noenddot]{scrartcl}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%     benötigte Pakete                   %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[utf8]{inputenc}     % Paket für Eingabekodierung (utf8 für die meisten aktuellen Linux-Distributionen): Umlaute
+%\usepackage[latin1]{inputenc}  % Eingabekodierung für Windows falls UTF8 nicht unterstützt wird
+\usepackage{ngerman}		% Deutsche Spracheigenheiten
+\usepackage{amsmath}		% AMS Mathe und Symbolpakete für mehr Möglichkeiten
+\usepackage{amsfonts}
+%%\usepackage{amssymb}
+% \usepackage{floatflt}
+% \usepackage{float}
+\usepackage{graphicx}		% Grafiken einbinden
+\usepackage{xcolor}
+\usepackage{hyperref}		% Erzeugt Verlinkungen im Dokument
+\usepackage{url}			% erlaubt das einfache Schreiben von URLs
+\usepackage{listings}		% für Listings (ftp://ftp.ctan.org/tex-archive/macros/latex/contrib/listings/listings.pdf)
+\usepackage[T1]{fontenc} 	% Wichtig für Umlaute in PDFs
+\usepackage{lmodern}		% Für bessere Schriftdarstellung trotz fontenc
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%      Weitere sinnvolle Pakete          %%%
+%%%      ggf. Kommentar entfernen          %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{multirow}		% Zeilen in Tabellen zusammenfassen (http://tug.ctan.org/tex-archive/macros/latex/required/graphics/grfguide.pdf)
+\usepackage{hhline}		% Horizontale Linien in Tabellen feiner gestalten
+
+% Unterabbildungen können mit dem subfig-Paket realisiert werden.
+% (z.B. Abb. 1a) (http://tug.ctan.org/tex-archive/macros/latex/contrib/subfig/subfig.pdf)
+\usepackage{subfig}
+
+
+% Sehr gute Möglichkeiten um Grafiken direkt in LaTeX zu erzeugen bietet Tikz (http://mirror.ctan.org/graphics/pgf/base/doc/generic/pgf/pgfmanual.pdf und http://www.statistiker-wg.de/pgf/tutorials.htm)
+%\usepackage{tikz}		% 
+%\usetikzlibrary[shapes.misc,shapes.geometric,arrows,decorations.pathmorphing,backgrounds,fit,positioning]
+
+%Globale Einstellungen für das Listingspaket
+\lstset{numbers=left,
+	basicstyle=\ttfamily\small, 		% Setzt den Standardstil
+	keywordstyle=\bfseries\small, 		% Setzt den Stil für Schlüsselwörter
+	identifierstyle=\bfseries, 		% Identifier fett
+	tabsize=2,				% Breite der Tabs
+	showstringspaces=false,			% Leerzeichen in Strings nicht anzeigen
+	commentstyle=\color{red!40}, 		% Stil für Kommentare
+	stringstyle=\color{blue}, 		% Stil für Strings (gekennzeichnet mit "String")
+	breaklines=true, 			% Zeilen werden umgebrochen
+	numbers=left, 				% Zeilennummern links
+	numberstyle=\tiny, 			% Stil für die Seitennummern
+	frame=single, 				% Rahmen	
+	backgroundcolor=\color{black!10}, 	% Hintergrundfarbe
+	captionpos=b,				% Position der Listingunterschrift
+	float
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Ein paar Hilfskommandos, die nützlich sein können %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\code}[1]{\textsf{#1}}	% Code in Text
+\newcommand{\pkg}[1]{\textsf{#1}}	% Paketnamen
+\newcommand{\class}[1]{\textsf{#1}} 	% Klassennamen
+\newcommand{\idx}[1]{_\text{#1}} 	% schreibt in Formeln einen nicht kursiven Index
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Einstellungen für das Dokument %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Der Titel wird hier eingetragen
+\title{Beispielvorlage für eine Seminarausarbeitung}
+
+% Der/die Verfasser wird hier angegeben
+\author{Arthur Dent, Ford Prefect}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Hier beginnt das eigentliche Dokument %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+	
+	
+	%%%%%%%%%%%%%%%%%%
+	%%% Titelblatt %%%
+	%%%%%%%%%%%%%%%%%%
+	\begin{titlepage}
+		\begin{center}
+			\vspace*{1.5cm}
+			\begin{Large}
+				\textbf{Universit\"at Osnabr\"uck}
+			\end{Large}
+			
+			\noindent\hrulefill
+			\\[3.5cm]
+			AUSARBEITUNG \\[1cm]
+			zum Seminar \\[1cm]
+			\textbf{Beispielseminar} \\[1.5cm]    % Seminartitel eintragen 
+			im Sommersemester 2017 \\[1.5cm]   % Semester / Datum eintragen
+			Thema: \\[0.5cm]
+			\textbf{Mein Beispielthema} \\[2cm]        % Titel des eigenen Seminarthemas eintragen
+			Erstellt am \today
+		\end{center}
+		\vfill
+		\begin{flushleft}
+			Vorgelegt von: 
+			\hfill \parbox{60mm}{Arthur Dent und Ford Prefect} \\  % Eigene Daten einsetzen
+			\hfill \parbox{60mm}{123456} \\
+			\hfill \parbox{60mm}{Albrechtstraße 1} \\
+			\hfill \parbox{60mm}{49074 Osnabrück} \\
+			\hfill \parbox{60mm}{not.available@uos.de}
+		\end{flushleft}
+	\end{titlepage}
+	%%% end title page
+	
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	%%% Inhaltsverzeichnis mit römischen Seitenzahlen %%%
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\newpage
+	\pagenumbering{roman}
+	\tableofcontents 
+	
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	%%% Start des Dokumenteninhalts mit arabischen Seitenzahlen %%%
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	\newpage
+	\pagenumbering{arabic}
+	
+	\maketitle
+	
+	\begin{abstract}
+		Abstract...
+
+	\end{abstract}
+	
+	\section{Einführung}
+		
+	\subsection{Zweite Gliederungsebene}
+	
+	\subsubsection{Dritte Gliederungsebene}
+		
+	\section{Zweite Section...}
+		
+	\subsection{Zweite Gliederungsebene}
+
+	\subsubsection{Dritte Gliederungsebene}
+	
+	\section{Zusammenfassung}
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	%%%% Literaturverzeichnis %%%%
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	\newpage
+	
+	%\bibliographystyle{./plaindin} % Hier die .bst Datei aus der Vorlage verwenden und in das Verzeichnis mit der Hauptdatei legen.                             
+	
+	\bibliographystyle{plaindin} % Hier die .bst Datei aus der Vorlage verwenden und in das Verzeichnis mit der Hauptdatei legen.
+	% \bibliographystyle{plain}     % andere bibstyles (bst) formatieren 
+	%\bibliographystyle{alpha}     % die Literatur anders
+	\bibliography{bspbib} % Bibtex Dateiname einsetzen (enthält die Literaturquellen)
+	
+	
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	%%% Anhang zum Dokument %%%
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\appendix	% Ab hier ist Anhang
+	\newpage
+	
+	
+	\section{Anhang}
+	
+	\subsection{Die Zweite Gliederungsebene im Anhang}
+	
+	
+\end{document}
